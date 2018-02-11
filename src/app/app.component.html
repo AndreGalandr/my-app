@@ -1,20 +1,67 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-- Применил директиву атрибута appHighlight
+     обязательно нужен prefix моего приложении ( для данного это app )
+-->
+
+<!--<h1 appHighlight>My First Angular App</h1>-->
+<!--<p appHighlight>Highlight me!</p>-->
+
+<!--<p appHighlight highlightColor="yellow">Highlighted in yellow</p>-->
+<!--<p appHighlight [highlightColor]="'orange'">Highlighted in orange</p>-->
+
+<!--<p appHighlight [highlightColor]="color">Highlighted with parent component's color</p>-->
+
+<!--<p [appHighlight]="color">Highlight me!</p>-->
+
+<!--<p [appHighlight]="color">Highlight me!</p>-->
+
+<!--<div style="text-align:center">-->
+<!--<h1>-->
+  <!--Welcome to {{title}}!-->
+<!--</h1>-->
+  <!--<img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">-->
+<!--</div>-->
+<!--<h2>Here are some links to help you start: </h2>-->
+<!--<ul>-->
+  <!--<li>-->
+    <!--<h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>-->
+  <!--</li>-->
+  <!--<li>-->
+    <!--<h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>-->
+  <!--</li>-->
+  <!--<li>-->
+    <!--<h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>-->
+  <!--</li>-->
+<!--</ul>-->
+
+<!--<form #f="ngForm">-->
+  <!--<input type="radio" value="beef" name="food" [(ngModel)]="myFood"> Beef-->
+ <!--<input type="radio" value="lamb" name="food" [(ngModel)]="myFood"> Lamb-->
+  <!--<input type="radio" value="fish" name="food" [(ngModel)]="myFood"> Fish-->
+ <!--</form>-->
+<!--<p>Form value: {{ f.value | json }}</p>  &lt;!&ndash; {food: \'lamb\' } &ndash;&gt;-->
+<!--<p>myFood value: {{ myFood }}</p>  &lt;!&ndash; \'lamb\' &ndash;&gt;-->
+
+
+<!--Запишите жгут проводов, чтобы попробовать тут я тестю с сайта пункт в оф. API
+ действие директивы-->
+
+<h1>Write a harness to try it My First Attribute Directive</h1>
+
+<h4>Pick a highlight color</h4>
+<div>
+    <input id="searchTerm" type="radio" name="colors" (click)="color='lightgreen'">Green
+    <label for="searchTerm"></label>
+
+    <input id="searchTerm2" type="radio" name="colors" (click)="color='yellow'">Yellow
+    <label for="searchTerm2"></label>
+
+    <input id="searchTerm3"  type="radio" name="colors" (click)="color='cyan'">Cyan
+    <label for="searchTerm3"></label>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<p [appHighlight]="color">Выдели меня!</p>
+
+<p [appHighlight]="color" defaultColor="violet">
+    И меня и меня выдели!
+</p>
+
 
