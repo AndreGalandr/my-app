@@ -66,4 +66,10 @@
     youtube
 </p>
 
-
+<div class="zippy">
+    <div (click)="toggle()">Toggle</div>
+    <div [hidden]="!visible">
+        <ng-content></ng-content>
+        <p [appHighlight]="color">I'm here!</p>
+    </div>
+</div>

@@ -17,7 +17,7 @@
 
     // working variant
 
-import { Component, Directive } from '@angular/core';
+import {Component, Directive, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Directive({
@@ -34,8 +34,23 @@ export class FirstDirective {
 })
 export class AppComponent {
     color: string;
+    visible: boolean;
 
+    @Output() open: EventEmitter<any> = new EventEmitter();
+    @Output() close: EventEmitter<any> = new EventEmitter();
+
+    toggle() {
+        this.visible = !this.visible;
+        if (this.visible) {
+            this.open.emit(null);
+        } else {
+            this.close.emit(null);
+        }
+    }
 }
+
+
+
 
 // @Component({
 //     selector: 'app-root',
