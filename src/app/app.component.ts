@@ -18,7 +18,6 @@
     // working variant
 
 import {Component, Directive, EventEmitter, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Directive({
     selector: '[appHighlight]'
@@ -39,6 +38,14 @@ export class AppComponent {
     @Output() open: EventEmitter<any> = new EventEmitter();
     @Output() close: EventEmitter<any> = new EventEmitter();
 
+    states = [
+        {name: 'Arizona', abbreviation: 'AZ'},
+        {name: 'California', abbreviation: 'CA'},
+        {name: 'Colorado', abbreviation: 'CO'},
+        {name: 'New York', abbreviation: 'NY'},
+        {name: 'Pennsylvania', abbreviation: 'PA'},
+    ];
+
     toggle() {
         this.visible = !this.visible;
         if (this.visible) {
@@ -48,6 +55,7 @@ export class AppComponent {
         }
     }
 }
+
 
 
 
