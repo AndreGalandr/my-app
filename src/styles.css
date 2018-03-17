@@ -14,3 +14,17 @@
 .layer_2 {
     margin-top: 3px;
 }
+
+.layer_3 {
+    clear: left;
+}
+
+.below {
+    width: 42%;
+}
+
+/*.famfamfam-flags {*/
+    /*display: inline-block;*/
+    /*margin-right: 6px;*/
+    /*width: 16px;*/
+/*}*/

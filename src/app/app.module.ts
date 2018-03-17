@@ -1,20 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent, FirstDirective } from './app.component';
+import { AppComponent, CheckboxDirective, FirstDirective } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectModule } from 'ng-select';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstDirective,
-    HighlightDirective
+    HighlightDirective,
+    CheckboxDirective
   ],
   imports: [
     BrowserModule,
     FormsModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -80,11 +80,63 @@
                 name="state"
                 ngModel>
             <option value=""
-                    disabled>Choose a state
+                    >Choose a state
             </option>
-            <option *ngFor="let state of states" [ngValue]="state">
+            <option *ngFor="let state of states"
+                    [ngValue]="state">
                 {{ state.abbreviation }}
             </option>
         </select>
     </form>
 </div>
+
+<ng-select class=""
+        [options]="myOptions">
+</ng-select>
+
+<div>Selected option: {{selectedCountry}}</div>
+<ng-select
+        placeholder="Select a country"
+        [options]="countries"
+        [allowClear]="true"
+        [(ngModel)]="selectedCountry">
+    <ng-template
+            #optionTemplate
+            let-option="option">
+        <div class="famfamfam-flags {{option?.value.toLowerCase()}}"></div>
+        {{option?.label}}
+    </ng-template>
+</ng-select>
+
+
+<table class="layer_3">
+    <tr>
+        <td>
+            <label for="agree">I'm agree with rules <input id="agree" type="checkbox"></label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="not-a-robot">I'am not a robot <input id="not-a-robot" type="checkbox"></label>
+        </td>
+    </tr>
+</table>
+<form #f="ngForm">
+    <input type="checkbox"
+           name="rememberLogin"
+           ngModel>
+</form>
+
+<!--<input  type="checkbox"-->
+        <!--[(ngModel)]="model">-->
+
+<!--<input type="checkbox" [checked]="isChecked" (checked)="isChecked = $event">-->
+
+<!--<div class="checkbox">-->
+    <!--<label>-->
+        <!--<input name="selected"-->
+               <!--[(ngModel)]="selected"-->
+               <!--type="checkbox">Benutername speichern-->
+    <!--</label>-->
+<!--</div>-->
+
