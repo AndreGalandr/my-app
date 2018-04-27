@@ -17,8 +17,10 @@
 
 // working variant
 
-import { Component, Directive, EventEmitter, Output } from '@angular/core';
-import { IOption } from 'ng-select';
+import {Component, Directive, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+
+
 
 @Directive({
     selector: '[appHighlight]'
@@ -45,30 +47,52 @@ export class CheckboxDirective {
 export class AppComponent {
     color: string;
     visible: boolean;
-    selectedCountry: any = 'BE';
+    form: FormGroup;
+    // select_options = [];
 
     @Output() open: EventEmitter<any> = new EventEmitter();
     @Output() close: EventEmitter<any> = new EventEmitter();
 
     states = [
-        {name: 'Arizona', abbreviation: 'AZ'},
-        {name: 'California', abbreviation: 'CA'},
-        {name: 'Colorado', abbreviation: 'CO'},
-        {name: 'New York', abbreviation: 'NY'},
-        {name: 'Pennsylvania', abbreviation: 'PA'}
+        {name: 'Arizona', abbrev: 'AZ'},
+        {name: 'California', abbrev: 'CA'},
+        {name: 'Colorado', abbrev: 'CO'},
+        {name: 'New York', abbrev: 'NY'},
+        {name: 'Pennsylvania', abbrev: 'PA'},
     ];
 
-    myOptions: Array<IOption> = [
-        {label: 'Belgium', value: 'BE'},
-        {label: 'Luxembourg', value: 'LU'},
-        {label: 'Netherlands', value: 'NL'}
-    ];
+    select_options = ['banana', 'apple', 'orange'];
 
-    countries: Array<IOption> = [
-        {label: 'Belgium', value: 'BE'},
-        {label: 'Luxembourg', value: 'LU'},
-        {label: 'Netherlands', value: 'NL'}
-    ];
+    selectedFruit = this.select_options[1];
+
+    firstName = new FormControl('', Validators.required);
+
+
+    constructor(fb: FormBuilder) {
+        this.form = fb.group({
+            'firstName': this.firstName,
+            'password': ['', Validators.required]
+        });
+    }
+    onSubmit() {
+        console.log('model-based form submitted');
+        console.log(this.form);
+    }
+    // form = new FormGroup({
+    //     state: new FormControl(this.states[3]),
+    // });
+
+    fullUpdate() {
+        this.form.setValue({firstName: 'Partial', password: 'monkey'});
+    }
+
+    partialUpdate() {
+        this.form.patchValue({firstName: 'Partial'});
+    }
+
+    protected reset() {
+        this.form.reset();
+    }
 
     toggle() {
         this.visible = !this.visible;

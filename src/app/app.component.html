@@ -84,29 +84,11 @@
             </option>
             <option *ngFor="let state of states"
                     [ngValue]="state">
-                {{ state.abbreviation }}
+                {{ state.abbrev }}
             </option>
         </select>
     </form>
 </div>
-
-<ng-select class=""
-        [options]="myOptions">
-</ng-select>
-
-<div>Selected option: {{selectedCountry}}</div>
-<ng-select
-        placeholder="Select a country"
-        [options]="countries"
-        [allowClear]="true"
-        [(ngModel)]="selectedCountry">
-    <ng-template
-            #optionTemplate
-            let-option="option">
-        <div class="famfamfam-flags {{option?.value.toLowerCase()}}"></div>
-        {{option?.label}}
-    </ng-template>
-</ng-select>
 
 
 <table class="layer_3">
@@ -121,11 +103,36 @@
         </td>
     </tr>
 </table>
-<form #f="ngForm">
-    <input type="checkbox"
-           name="rememberLogin"
-           ngModel>
-</form>
+<!--<form #f="ngForm">-->
+    <!--<input type="checkbox"-->
+           <!--name="rememberLogin"-->
+           <!--ngModel>-->
+<!--</form>-->
+
+<!--<form [formGroup]="form">-->
+    <!--<select formControlName="state">-->
+        <!--<option *ngFor="let state of states"-->
+                <!--[ngValue]="state">-->
+            <!--{{ state.name }}-->
+        <!--</option>-->
+    <!--</select>-->
+<!--</form>-->
+
+<p>Form value: {{ form.value | json }}</p>
+ <!--{state: {name: 'New York', abbrev: 'NY'} } -->
+
+<!--<form-->
+        <!--[formGroup]="form">-->
+    <!--<ng-select-->
+            <!--[options]="myOptions"-->
+            <!--[multiple]="false"-->
+            <!--formControlName="mySelect">-->
+    <!--</ng-select>-->
+<!--</form>-->
+<!--<hr>-->
+<!--<div>-->
+    <!--Selected option id: {{form.value.mySelect}}-->
+<!--</div>-->
 
 <!--<input  type="checkbox"-->
         <!--[(ngModel)]="model">-->
@@ -140,3 +147,67 @@
     <!--</label>-->
 <!--</div>-->
 
+<section class="sample-app-content">
+    <h1>Model-based Form Example:</h1>
+    <form [formGroup]="form"
+          (ngSubmit)="onSubmit()">
+        <p>
+            <label>First Name:</label>
+            <input type="text"
+                   formControlName="firstName">
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="password"
+                   formControlName="password">
+        </p>
+        <p>
+            <button type="submit"
+                    [disabled]="!form.valid">Submit
+            </button>
+        </p>
+    </form>
+
+    <p>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+        <button (click)="partialUpdate()">Partial Update</button>
+        <button (click)="fullUpdate()">Full Update</button>
+        <button (click)="reset()">Cancel</button>
+    </p>
+</section>
+
+<select>
+    <option *ngFor="let fruit of select_options"
+            value="fruit">
+        {{fruit}}
+    <option>
+</select>
+
+<select [(ngModel)]="selectedFruit"
+        name="test">
+
+    <option *ngFor="let fruit of select_options"
+            value="fruit">
+        {{fruit}}
+    </option>
+</select>
+
+<form name="form">
+    <select name="genre" multiple>
+        <option value="blues" selected>Мягкий блюз</option>
+        <option value="rock" selected>Жёсткий рок</option>
+        <option value="classic">Классика</option>
+    </select>
+</form>
+
+<script>
+    var form = document.forms[0];
+    var select = form.elements.genre;
+
+    for (var i = 0; i < select.options.length; i++) {
+        var option = select.options[i];
+        if(option.selected) {
+            alert( option.value );
+        }
+    }
+</script>

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent, CheckboxDirective, FirstDirective } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SelectModule } from 'ng-select';
+import { SelectModule } from 'angular2-select';
 
 @NgModule({
   declarations: [
